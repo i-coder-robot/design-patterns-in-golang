@@ -15,7 +15,6 @@ func TestPi(t *testing.T) {
 }
 
 func TestWrapLogger(t *testing.T) {
-
 	f:= WrapLogger(Pi,log.New(os.Stdout,"test ",1))
 	f(100000)
 }
