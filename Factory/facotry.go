@@ -27,6 +27,8 @@ type (
 		PutData(string, string)
 	}
 
+
+
 	FileSystem interface {
 		CreateFile(string)
 		FindFile(string) file
@@ -59,7 +61,7 @@ func (sql sqlite) PutData(query, data string) {
 	sql.Database[query] = data
 }
 
-func DatabaseFactory(env string) Database {
+func DatabaseFactory(env string) interface{} {
 	switch env {
 	case "production":
 		return mongoDB{Database: make(map[string]string)}
@@ -101,7 +103,7 @@ func (ext ext4) FindFile(path string) file {
 	return f
 }
 
-func FilesystemFactory(env string) FileSystem {
+func FilesystemFactory(env string) interface{} {
 	switch env {
 	case "production":
 		return ntfs{Files: make(map[string]file)}
