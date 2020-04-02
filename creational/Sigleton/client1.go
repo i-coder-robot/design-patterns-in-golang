@@ -1,6 +1,6 @@
 package Sigleton
 
 func IncrementAge() {
-	p:=GetInstance()
+	p:= GetInstance()
 	p.IncrementAge()
 }

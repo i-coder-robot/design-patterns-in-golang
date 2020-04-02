@@ -22,7 +22,7 @@ func TestGetInstance(t *testing.T) {
 		}()
 	}
 	wg.Wait()
-	p:=GetInstance()
+	p:= GetInstance()
 	age:=p.GetAge()
 	fmt.Println(age)
 }
