@@ -46,6 +46,6 @@ func (c *Circle) Constructor(x int, y int, radius int, draw Draw) {
 	c.shape.Shape(draw)
 }
 
-func (c *Circle) Draw() {
+func (c *Circle) Cook() {
 	c.shape.draw.DrawCircle(c.radius, c.x, c.y)
 }
