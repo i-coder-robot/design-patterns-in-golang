@@ -3,7 +3,7 @@ package Responsibility_Chain
 import "strconv"
 
 type Handler interface {
-	Handler(handleID int) string
+	Handler(handlerID int) string
 }
 
 type handler struct {
@@ -12,13 +12,20 @@ type handler struct {
 	handlerID int
 }
 
-func NewHandler(name string, next Handler, handleID int) *handler {
-	return &handler{name, next, handleID}
+func NewHandler(name string, next Handler, handlerID int) *handler {
+	return &handler{
+		name:      name,
+		next:      next,
+		handlerID: handlerID,
+	}
 }
 
 func (h *handler) Handler(handlerID int) string {
 	if h.handlerID == handlerID {
 		return h.name + " handled " + strconv.Itoa(handlerID)
+	}
+	if h.next == nil {
+		return ""
 	}
 	return h.next.Handler(handlerID)
 }
