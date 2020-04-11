@@ -1,25 +1,24 @@
 package Visitor
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type IVisitor interface {
 	Visit()
 }
+type WeiBoVisitor struct {
 
-type WeiboVisitor struct {
 }
 
-func (w WeiboVisitor) Visit() {
-	fmt.Println("这是微博")
+func (w WeiBoVisitor) Visit(){
+	fmt.Println("Visit WeiBo")
 }
 
-type IQiYiVisitor struct {
+type IQIYIVisitor struct {
+
 }
 
-func (i IQiYiVisitor) Visit() {
-	fmt.Println("这里是爱奇艺")
+func (i IQIYIVisitor) Visit(){
+	fmt.Println("Visit IQiYi")
 }
 
 type IElement interface {
@@ -27,8 +26,9 @@ type IElement interface {
 }
 
 type Element struct {
+
 }
 
-func (el Element) Accept(v IVisitor) {
+func (e Element) Accept(v IVisitor){
 	v.Visit()
 }
